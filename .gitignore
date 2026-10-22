@@ -1,0 +1,32 @@
+# ============================================================
+# 随题 monorepo 根忽略规则（通用项）
+# 两个子项目各自的忽略规则见 desktop/.gitignore 与 mini/.gitignore
+# ============================================================
+
+# 跨平台 / 编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node / 小程序依赖（mini 子项目）
+node_modules/
+
+# 本地数据库 / 运行时数据（绝不入库）
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.log
+
+# 微信小程序运行时数据位于 USER_DATA_PATH，不在工程内；
+# 真机/模拟器里的缓存、题库、作答记录均不进仓库。
+
+# 构建产物（按需保留，这里默认不入库）
+desktop/build/
+desktop/dist/

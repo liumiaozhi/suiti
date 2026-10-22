@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="row-between" style="margin-bottom:20rpx">
+    <view class="t-sub">共 {{banks.length}} 个题库</view>
+    <button class="btn pri sm" bindtap="goImport">导入题库</button>
+  </view>
+
+  <view wx:if="{{err}}" class="card">
+    <view class="bad">读取失败：{{err}}</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="skeleton">加载中…</view>
+
+  <block wx:elif="{{banks.length}}">
+    <view class="card" wx:for="{{banks}}" wx:key="id">
+      <view class="row-between">
+        <view class="grow" bindtap="goSetup" data-id="{{item.id}}">
+          <view class="t-sub ellipsis">{{item.name}}</view>
+          <view class="t-sm muted" style="margin-top:6rpx">
+            单选 {{item.counts.single}} · 多选 {{item.counts.multi}} · 判断 {{item.counts.judge}} · 共 {{item.counts.total}} 题
+          </view>
+          <view class="t-xs muted" style="margin-top:6rpx">{{item.createdAt}}</view>
+        </view>
+        <view class="btn danger sm" catchtap="onDelete" data-id="{{item.id}}" data-name="{{item.name}}">删除</view>
+      </view>
+    </view>
+  </block>
+
+  <view wx:elif="{{!err}}" class="empty">
+    <view class="b">还没有题库</view>
+    <view class="d">支持直接导入随题桌面版的 Excel 模板（.xlsx）；<br/>老格式 .xls 请先另存为 .xlsx。</view>
+    <view style="margin-top:24rpx"><button class="btn pri" bindtap="goImport">导入题库</button></view>
+    <view wx:if="{{dev}}" style="margin-top:16rpx">
+      <button class="btn ghost sm" bindtap="seedDemo">开发：注入演示题库</button>
+    </view>
+  </view>
+</view>

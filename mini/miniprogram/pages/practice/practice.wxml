@@ -1,0 +1,52 @@
+<view class="page" wx:if="{{!loading}}">
+  <view wx:if="{{err}}" class="card"><view class="bad">{{err}}</view></view>
+
+  <block wx:else>
+    <view class="qhead">
+      <view class="qno">{{pos}}</view>
+      <view class="t-sm muted">/ {{total}}</view>
+      <view class="grow"></view>
+      <view class="mk {{marked ? 'on' : ''}}" bindtap="toggleMark">标记</view>
+      <view class="mk {{hardOn ? 'on hard' : ''}}" bindtap="toggleHard">重难</view>
+    </view>
+
+    <view class="card qcard">
+      <view class="stem">
+        <text class="typ">{{item.qtype === 'single' ? '单选' : item.qtype === 'multi' ? '多选' : '判断'}}</text>
+        {{item.stem}}
+      </view>
+
+      <view class="opts">
+        <view wx:for="{{opts}}" wx:for-item="o" wx:key="idx"
+              class="opt {{o.on ? 'sel' : ''}} {{o.ok ? 'ok' : ''}} {{o.no ? 'no' : ''}}"
+              data-idx="{{o.idx}}" bindtap="onOpt">
+          <text class="lbl">{{o.letter}}.</text>
+          <text class="txt">{{o.text}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{item.qtype === 'multi' && !result}}" class="row" style="margin-top:20rpx">
+        <view class="btn pri sm" bindtap="onDone">完成</view>
+        <text class="t-xs muted">多选题选好后点「完成」</text>
+      </view>
+
+      <view wx:if="{{result}}" class="fb {{result.isCorrect ? 'ok' : 'bad'}}">
+        <view class="t-sub">{{result.isCorrect ? '回答正确' : '回答错误'}}</view>
+        <view class="t-sm" style="margin-top:8rpx">
+          你的作答：{{result.chosenText || '未作答'}}　正确答案：{{result.answerText}}
+        </view>
+      </view>
+    </view>
+
+    <view class="nav">
+      <view class="btn ghost" bindtap="prev" wx:if="{{pos > 1}}">上一题</view>
+      <view class="grow"></view>
+      <view class="btn pri" bindtap="next">{{pos >= total ? '结束练习' : '下一题'}}</view>
+    </view>
+
+    <view class="foot-note">
+      <text class="t-xs muted">已答 {{doneCnt}} / {{total}}　·　</text>
+      <text class="t-xs muted link" bindtap="exit">退出</text>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,66 @@
+<view class="page">
+  <view class="seg" style="margin-bottom:20rpx">
+    <view class="item {{tab === 'practice' ? 'on' : ''}}" data-tab="practice" bindtap="switchTab">做题记录</view>
+    <view class="item {{tab === 'exam' ? 'on' : ''}}" data-tab="exam" bindtap="switchTab">考试记录</view>
+  </view>
+
+  <view wx:if="{{err}}" class="card">
+    <view class="bad">读取失败：{{err}}</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="skeleton">加载中…</view>
+
+  <block wx:elif="{{rows.length}}">
+    <view class="stats" style="margin-bottom:20rpx;grid-template-columns:repeat(3,1fr)">
+      <view class="stat">
+        <view class="k">{{tab === 'practice' ? '题库' : '场次'}}</view>
+        <view class="v">{{tab === 'practice' ? overall.bank_cnt : overall.exam_cnt}}<small>个</small></view>
+      </view>
+      <view class="stat pri">
+        <view class="k">已做题</view>
+        <view class="v">{{tab === 'practice' ? overall.done_cnt : overall.total_q}}<small>道</small></view>
+      </view>
+      <view class="stat">
+        <view class="k">正确率</view>
+        <view class="v" style="font-size:32rpx">{{overall.accText}}</view>
+      </view>
+    </view>
+
+    <!-- 做题记录：按题库 -->
+    <block wx:if="{{tab === 'practice'}}">
+      <view class="card" wx:for="{{rows}}" wx:key="bank_id">
+        <view class="row-between">
+          <view class="grow">
+            <view class="t-sub ellipsis">{{item.bank_name}}</view>
+            <view class="t-sm muted" style="margin-top:6rpx">
+              对 {{item.right}} · 错 {{item.wrong}} · 漏 {{item.missing}} · 共做 {{item.done_cnt}} 题
+            </view>
+          </view>
+          <view class="tag {{item.accuracy >= 60 ? 'ok' : 'gray'}}">{{item.accText}}</view>
+        </view>
+      </view>
+    </block>
+
+    <!-- 考试记录：一次考试一行 -->
+    <block wx:else>
+      <view class="card" wx:for="{{rows}}" wx:key="session_id">
+        <view class="row-between">
+          <view class="grow">
+            <view class="t-sub ellipsis">{{item.candidate || '未填考生'}}</view>
+            <view class="t-sm muted" style="margin-top:6rpx">{{item.bank_name}}</view>
+            <view class="t-xs muted" style="margin-top:4rpx">{{item.submitted_at}}</view>
+          </view>
+          <view style="text-align:right">
+            <view class="t-sub">{{item.scoreText}}<text class="t-xs muted"> / {{item.score_total}}</text></view>
+            <view class="tag gray" style="margin-top:6rpx">{{item.accText}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </block>
+
+  <view wx:elif="{{!err}}" class="empty">
+    <view class="b">{{tab === 'practice' ? '还没有做题记录' : '还没有考试记录'}}</view>
+    <view class="d">{{tab === 'practice' ? '练习、模拟、正式考试的作答都会汇总到这里。' : '只有「正式考试」会单独留一条考试记录。'}}</view>
+  </view>
+</view>

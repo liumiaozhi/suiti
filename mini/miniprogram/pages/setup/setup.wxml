@@ -1,0 +1,85 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="skeleton">加载中…</view>
+
+  <block wx:else>
+    <view class="card">
+      <view class="card-h">
+        <view class="h3 grow ellipsis">{{bankName}}</view>
+        <view class="tag">{{modeLabel}}</view>
+      </view>
+
+      <view class="field">
+        <view wx:if="{{showCandidate}}" class="field" style="margin-bottom:28rpx">
+          <view class="lbl">0. 考生信息</view>
+          <input class="inp" placeholder="姓名 / 工号，不超过 50 字" maxlength="50"
+                 value="{{candidate}}" bindinput="onCandidateInput" />
+          <view class="hint">正式考试与模拟考试必填，会打印在试卷卷头上。</view>
+        </view>
+
+        <view class="lbl">1. 题型</view>
+        <view class="row" style="flex-wrap:wrap">
+          <view wx:for="{{types}}" wx:key="key"
+                class="chip {{item.on ? 'on' : ''}} {{item.available ? '' : 'off'}}"
+                data-key="{{item.key}}" bindtap="toggleType">
+            {{item.label}}（{{item.available}}）
+          </view>
+        </view>
+        <view class="hint">灰色的题型表示该题库里没有这类题。</view>
+      </view>
+
+      <view class="field">
+        <view class="lbl">2. 数量与分值</view>
+        <view class="seg" style="margin-bottom:16rpx">
+          <view class="item {{amountMode === 'all' ? 'on' : ''}}" data-mode="all" bindtap="setAmountMode">全量</view>
+          <view class="item {{amountMode === 'num' ? 'on' : ''}}" data-mode="num" bindtap="setAmountMode">按题型指定</view>
+        </view>
+
+        <view wx:for="{{rows}}" wx:key="key" class="qtype-row">
+          <view class="qtype-name">{{item.label}}</view>
+          <block wx:if="{{amountMode === 'all'}}">
+            <text class="t-sm muted grow">全量 {{item.available}} 题</text>
+          </block>
+          <block wx:else>
+            <input class="inp sm" type="number" placeholder="{{item.available}}"
+                   value="{{amount[item.key]}}" data-key="{{item.key}}" bindinput="onAmountInput" />
+          </block>
+          <text class="t-sm muted">每题</text>
+          <input class="inp sm" type="digit" value="{{scores[item.key]}}"
+                 data-key="{{item.key}}" bindinput="onScoreInput" />
+          <text class="t-sm muted">分 = {{item.subtotal}} 分</text>
+        </view>
+      </view>
+
+      <view class="field">
+        <view class="lbl">3. 题目顺序</view>
+        <view class="seg">
+          <view class="item {{qOrder === 'asc' ? 'on' : ''}}" data-field="q" data-value="asc" bindtap="setOrder">正序</view>
+          <view class="item {{qOrder === 'desc' ? 'on' : ''}}" data-field="q" data-value="desc" bindtap="setOrder">倒序</view>
+          <view class="item {{qOrder === 'random' ? 'on' : ''}}" data-field="q" data-value="random" bindtap="setOrder">随机</view>
+        </view>
+        <view class="hint">题型之间固定按 单选 → 多选 → 判断 排列，顺序只在题型内部生效。</view>
+      </view>
+
+      <view class="field">
+        <view class="lbl">4. 答案顺序</view>
+        <view class="seg">
+          <view class="item {{aOrder === 'keep' ? 'on' : ''}}" data-field="a" data-value="keep" bindtap="setOrder">与题库一致</view>
+          <view class="item {{aOrder === 'shuffle' ? 'on' : ''}}" data-field="a" data-value="shuffle" bindtap="setOrder">随机打乱</view>
+        </view>
+        <view class="hint">判断题固定「正确 / 错误」，不打乱。</view>
+      </view>
+    </view>
+
+    <view class="card" wx:if="{{err}}">
+      <view class="bad">{{err}}</view>
+    </view>
+
+    <view class="footbar">
+      <view class="grow">
+        <view class="t-sm muted">本次共 {{total}} 题，满分 {{scoreTotalText}} 分</view>
+      </view>
+      <view class="btn pri {{total ? '' : 'dis'}}" bindtap="start">开始</view>
+    </view>
+    <view style="height:120rpx"></view>
+  </block>
+</view>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>随题</title>
+<link rel="icon" href="assets/app.ico">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <div class="logo">题</div>
+      <div>
+        <b>随题</b>
+        <small>SUI TI</small>
+      </div>
+    </div>
+    <nav>
+      <a data-route="home"><span class="ic">◆</span>首页</a>
+      <a data-route="banks"><span class="ic">▤</span>我的题库</a>
+      <a data-route="hard"><span class="ic">★</span>重难错题</a>
+      <a data-route="records"><span class="ic">▦</span>做题记录</a>
+    </nav>
+    <div class="foot">
+      版本 <b id="ver">1.0.0</b><br>
+      <span id="data-hint">数据保存在本机</span>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <h1 id="page-title">首页</h1>
+      <div class="meta" id="page-meta"></div>
+      <div class="spacer"></div>
+      <div id="top-actions" style="display:flex;gap:8px;align-items:center"></div>
+    </header>
+    <div class="view" id="view">
+      <div class="skeleton">正在加载…</div>
+    </div>
+  </div>
+</div>
+
+<script src="js/core.js"></script>
+<script src="js/home.js"></script>
+<script src="js/banks.js"></script>
+<script src="js/hard.js"></script>
+<script src="js/setup.js"></script>
+<script src="js/practice.js"></script>
+<script src="js/exam.js"></script>
+<script src="js/result.js"></script>
+<script src="js/records.js"></script>
+<script>
+  // 启动后补全版本号与数据目录
+  App.ready.then(function () {
+    return App.call('app_info', {});
+  }).then(function (info) {
+    var v = document.getElementById('ver');
+    if (v) v.textContent = info.version || '1.0.0';
+    var h = document.getElementById('data-hint');
+    if (h && info.data_dir) h.title = '数据目录：' + info.data_dir;
+  }).catch(function () {});
+</script>
+</body>
+</html>

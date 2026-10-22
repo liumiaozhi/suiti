@@ -1,0 +1,14 @@
+{
+  "cases": [],
+  "generatedAt": "2026-10-22 09:11:53",
+  "python": "3.14.5",
+  "src": "D:\\AI工具库\\workbuddy工作空间\\随我题",
+  "isolation": true,
+  "desktopVersion": "1.2.0",
+  "template": {
+    "path": "miniprogram/pkg-io-import/assets/template.xlsx",
+    "contentSha": "bc2232621c9ce47eafcf19ff7efd24148613103d499d0a1e1d265d03fcac0fa9",
+    "bytes": 17313,
+    "note": "xlsx 字节含时间戳不可复现，校验请用 contentSha / 单元格内容"
+  }
+}

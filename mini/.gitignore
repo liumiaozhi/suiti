@@ -1,0 +1,23 @@
+# 依赖
+node_modules/
+package-lock.json
+
+# 密钥：AppSecret 等绝不能进仓库
+*.secret.json
+local.secret.*
+.secret/
+
+
+# 构建/临时产物
+miniprogram/pkg-io-export/out/
+miniprogram/pkg-io-import/assets/*.tmp
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 说明：tests/fixtures/*.json 是 golden 基线，必须提交；
+#       但 import 用例里的 .xlsx 是临时生成的，不入库。
+tests/fixtures/**/*.xlsx
+tests/tmp/
+tests/preview-qr.png

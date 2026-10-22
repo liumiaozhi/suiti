@@ -1,0 +1,17 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="card"><view class="muted">导出中…</view></view>
+
+  <view wx:elif="{{err}}" class="card">
+    <view class="bad">{{err}}</view>
+    <view style="margin-top:20rpx"><view class="btn ghost" bindtap="goBack">返回</view></view>
+  </view>
+
+  <view wx:else class="card">
+    <view class="t-sub">已生成 Excel</view>
+    <view class="t-sm muted" style="margin-top:10rpx">{{name}}.xlsx</view>
+    <view class="t-sm muted" style="margin-top:10rpx;line-height:1.6">
+      在打开的预览里点右上角「…」可发送给好友或保存到手机。
+    </view>
+    <view style="margin-top:20rpx"><view class="btn ghost" bindtap="goBack">返回</view></view>
+  </view>
+</view>

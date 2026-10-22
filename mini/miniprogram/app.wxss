@@ -1,0 +1,154 @@
+/* 随题 · 小程序全局样式
+   配色沿用桌面版（浅色、主色蓝、绿=正确/红=错误/黄=标记），尺寸按手机重新定标，
+   不做 1320px→750rpx 的等比缩放（那会让正文只有 8rpx）。
+   约定：页面私有样式放各自 wxss，公共类只在这里定义一次，不要在页面里重复。 */
+
+page {
+  --bg: #f2f6fc;
+  --surface: #ffffff;
+  --surface-2: #f8fafd;
+  --line: #e3ebf5;
+  --line-2: #cfdcec;
+  --text: #16233a;
+  --text-2: #40536e;
+  --muted: #7b8ca3;
+  --primary: #1f5fd0;
+  --primary-d: #1a4fae;
+  --primary-soft: #e8f1ff;
+  --ok: #0f7a55;
+  --ok-soft: #e6f7ef;
+  --bad: #c62828;
+  --bad-soft: #fdeceb;
+  --warn: #a15c07;
+  --warn-soft: #fff5e5;
+  --mark: #f5b301;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.65;
+}
+
+view, text, scroll-view, swiper, button, input, textarea { box-sizing: border-box; }
+
+/* 去掉小程序 button 自带边框与背景 */
+button { border: none; background: none; padding: 0; margin: 0; line-height: inherit; }
+button::after { border: none; }
+
+/* ---------------- 布局 ---------------- */
+.page { min-height: 100vh; padding: 24rpx 24rpx 40rpx; }
+.page-safe { padding-bottom: calc(40rpx + env(safe-area-inset-bottom)); }
+.row { display: flex; align-items: center; gap: 16rpx; }
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: 16rpx; }
+.col { display: flex; flex-direction: column; gap: 16rpx; }
+.grow { flex: 1 1 auto; min-width: 0; }
+.nowrap { white-space: nowrap; }
+
+/* ---------------- 卡片 ---------------- */
+.card {
+  background: var(--surface);
+  border-radius: 20rpx;
+  box-shadow: 0 2rpx 16rpx rgba(22, 50, 90, .07);
+  padding: 26rpx;
+}
+.card + .card { margin-top: 20rpx; }
+.card-h { display: flex; align-items: center; gap: 12rpx; margin-bottom: 18rpx; }
+.card-h .h3 { font-size: 30rpx; font-weight: 600; color: var(--text); }
+.card-h .spacer { flex: 1 1 auto; }
+
+/* ---------------- 文字 ---------------- */
+.t-title { font-size: 36rpx; font-weight: 700; }
+.t-sub { font-size: 30rpx; font-weight: 600; }
+.t-body { font-size: 28rpx; }
+.t-sm { font-size: 24rpx; }
+.t-xs { font-size: 22rpx; }
+.muted { color: var(--muted); }
+.text-2 { color: var(--text-2); }
+.ok { color: var(--ok); }
+.bad { color: var(--bad); }
+.warn { color: var(--warn); }
+.strong { font-weight: 600; }
+.ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ellipsis-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ---------------- 按钮 ---------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 88rpx; padding: 0 34rpx; border-radius: 14rpx;
+  font-size: 28rpx; font-weight: 600;
+  background: #eef2f9; color: var(--text-2);
+}
+.btn.pri { background: var(--primary); color: #fff; }
+.btn.pri.hover, .btn.pri:active { background: var(--primary-d); }
+.btn.ghost { background: transparent; border: 2rpx solid var(--line-2); color: var(--text-2); }
+.btn.ok { background: var(--ok-soft); color: var(--ok); }
+.btn.danger { background: var(--bad-soft); color: var(--bad); }
+.btn.sm { min-height: 64rpx; padding: 0 24rpx; font-size: 24rpx; border-radius: 10rpx; }
+.btn.lg { min-height: 96rpx; font-size: 30rpx; }
+.btn.block { display: flex; width: 100%; }
+.btn[disabled] { opacity: .45; }
+
+/* ---------------- 标签 ---------------- */
+.tag {
+  display: inline-flex; align-items: center; height: 36rpx; padding: 0 12rpx;
+  border-radius: 8rpx; font-size: 20rpx; font-weight: 600;
+  background: var(--primary-soft); color: var(--primary);
+}
+.tag.gray { background: #eef2f9; color: var(--muted); }
+.tag.ok { background: var(--ok-soft); color: var(--ok); }
+.tag.bad { background: var(--bad-soft); color: var(--bad); }
+.tag.warn { background: var(--warn-soft); color: var(--warn); }
+
+/* ---------------- 输入 ---------------- */
+.inp {
+  height: 88rpx; padding: 0 24rpx; border: 2rpx solid var(--line-2); border-radius: 12rpx;
+  background: var(--surface); font-size: 28rpx; color: var(--text);
+}
+.inp.sm { height: 64rpx; padding: 0 16rpx; font-size: 26rpx; width: 130rpx; text-align: center; }
+.field { margin-bottom: 24rpx; }
+.field .lbl { display: block; font-size: 26rpx; color: var(--text-2); font-weight: 600; margin-bottom: 10rpx; }
+.hint { font-size: 22rpx; color: var(--muted); margin-top: 8rpx; line-height: 1.5; }
+
+/* ---------------- 分段控件 ---------------- */
+.seg { display: inline-flex; padding: 4rpx; background: #eef2f9; border-radius: 12rpx; }
+.seg .item {
+  padding: 10rpx 26rpx; border-radius: 10rpx; font-size: 26rpx; color: var(--text-2);
+}
+.seg .item.on { background: var(--surface); color: var(--primary); font-weight: 600; box-shadow: 0 2rpx 8rpx rgba(22,50,90,.08); }
+
+/* ---------------- 加减器 ---------------- */
+.stepper { display: inline-flex; align-items: center; gap: 0; border-radius: 10rpx; overflow: hidden; }
+.stepper .stepbtn {
+  width: 64rpx; height: 64rpx; line-height: 60rpx; text-align: center;
+  background: #eef2f9; color: var(--text-2); font-size: 32rpx; font-weight: 600;
+}
+.stepper .stepval { min-width: 96rpx; height: 64rpx; line-height: 64rpx; text-align: center; background: var(--surface); font-size: 28rpx; font-weight: 600; }
+
+/* ---------------- 统计块 ---------------- */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16rpx; }
+.stat { background: var(--surface); border-radius: 16rpx; padding: 22rpx 18rpx; }
+.stat .k { font-size: 22rpx; color: var(--muted); }
+.stat .v { font-size: 40rpx; font-weight: 700; margin-top: 4rpx; }
+.stat .v small { font-size: 22rpx; font-weight: 400; color: var(--muted); margin-left: 4rpx; }
+.stat.pri .v { color: var(--primary); }
+
+/* ---------------- 空态 / 骨架 ---------------- */
+.empty { background: var(--surface); border-radius: 20rpx; padding: 70rpx 40rpx; text-align: center; }
+.empty .b { display: block; font-size: 30rpx; font-weight: 600; margin-bottom: 12rpx; }
+.empty .d { font-size: 24rpx; color: var(--muted); line-height: 1.7; }
+.skeleton { padding: 60rpx; text-align: center; color: var(--muted); font-size: 26rpx; }
+
+/* ---------------- 遮罩与弹窗 ---------------- */
+.mask {
+  position: fixed; inset: 0; background: rgba(16, 32, 56, .45);
+  display: flex; align-items: center; justify-content: center; z-index: 900;
+}
+.dialog { width: 620rpx; max-height: 76vh; background: var(--surface); border-radius: 24rpx; overflow: hidden; display: flex; flex-direction: column; }
+.dialog .dh { padding: 28rpx 28rpx 12rpx; font-size: 32rpx; font-weight: 700; }
+.dialog .db { padding: 0 28rpx 8rpx; overflow-y: auto; flex: 1 1 auto; }
+.dialog .df { display: flex; gap: 16rpx; padding: 20rpx 28rpx 28rpx; }
+.dialog .df .btn { flex: 1 1 0; }
+
+/* 隐藏滚动条但保留滚动 */
+::-webkit-scrollbar { width: 0; height: 0; }

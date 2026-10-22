@@ -1,0 +1,727 @@
+{
+  "cases": [
+    {
+      "name": "八列选项-标准",
+      "file": "八列选项-标准.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "选项A",
+          "选项B",
+          "选项C",
+          "选项D",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干一",
+          null,
+          "甲",
+          "乙",
+          "丙",
+          "丁",
+          "B"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "题干一",
+            "options": [
+              "甲",
+              "乙",
+              "丙",
+              "丁"
+            ],
+            "answer": [
+              1
+            ],
+            "answer_text": "B",
+            "source_row": 2,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "单列竖线",
+      "file": "单列竖线.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干二",
+          "甲|乙|丙|丁",
+          "C"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "题干二",
+            "options": [
+              "甲",
+              "乙",
+              "丙",
+              "丁"
+            ],
+            "answer": [
+              2
+            ],
+            "answer_text": "C",
+            "source_row": 2,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "单列换行",
+      "file": "单列换行.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干三",
+          "甲\n乙\n丙",
+          "A"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "题干三",
+            "options": [
+              "甲",
+              "乙",
+              "丙"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "A",
+            "source_row": 2,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "两种都填只认单列",
+      "file": "两种都填只认单列.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "选项A",
+          "选项B",
+          "选项C",
+          "选项D",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干四",
+          "甲|乙|丙",
+          "戊",
+          "己",
+          "庚",
+          "辛",
+          "A"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "题干四",
+            "options": [
+              "甲",
+              "乙",
+              "丙"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "A",
+            "source_row": 2,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "判断题忽略选项列",
+      "file": "判断题忽略选项列.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "判断",
+          "判断题干",
+          "正确|错误",
+          "对"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "judge",
+            "stem": "判断题干",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "正确",
+            "source_row": 2,
+            "raw_type": "判断"
+          }
+        ],
+        "errors": [],
+        "warnings": [
+          {
+            "row": 2,
+            "msg": "判断题的选项已自动按「正确/错误」处理，填写的选项被忽略"
+          }
+        ]
+      }
+    },
+    {
+      "name": "判断题9种写法",
+      "file": "判断题9种写法.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "判断",
+          "判断题0",
+          null,
+          "对"
+        ],
+        [
+          "判断",
+          "判断题1",
+          null,
+          "错"
+        ],
+        [
+          "判断",
+          "判断题2",
+          null,
+          "√"
+        ],
+        [
+          "判断",
+          "判断题3",
+          null,
+          "×"
+        ],
+        [
+          "判断",
+          "判断题4",
+          null,
+          "T"
+        ],
+        [
+          "判断",
+          "判断题5",
+          null,
+          "F"
+        ],
+        [
+          "判断",
+          "判断题6",
+          null,
+          "是"
+        ],
+        [
+          "判断",
+          "判断题7",
+          null,
+          "否"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "judge",
+            "stem": "判断题0",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "正确",
+            "source_row": 2,
+            "raw_type": "判断"
+          },
+          {
+            "qtype": "judge",
+            "stem": "判断题1",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              1
+            ],
+            "answer_text": "错误",
+            "source_row": 3,
+            "raw_type": "判断"
+          },
+          {
+            "qtype": "judge",
+            "stem": "判断题2",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "正确",
+            "source_row": 4,
+            "raw_type": "判断"
+          },
+          {
+            "qtype": "judge",
+            "stem": "判断题3",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              1
+            ],
+            "answer_text": "错误",
+            "source_row": 5,
+            "raw_type": "判断"
+          },
+          {
+            "qtype": "judge",
+            "stem": "判断题4",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "正确",
+            "source_row": 6,
+            "raw_type": "判断"
+          },
+          {
+            "qtype": "judge",
+            "stem": "判断题5",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              1
+            ],
+            "answer_text": "错误",
+            "source_row": 7,
+            "raw_type": "判断"
+          },
+          {
+            "qtype": "judge",
+            "stem": "判断题6",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "正确",
+            "source_row": 8,
+            "raw_type": "判断"
+          },
+          {
+            "qtype": "judge",
+            "stem": "判断题7",
+            "options": [
+              "正确",
+              "错误"
+            ],
+            "answer": [
+              1
+            ],
+            "answer_text": "错误",
+            "source_row": 9,
+            "raw_type": "判断"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "带序号的选项",
+      "file": "带序号的选项.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干五",
+          "A. 甲|B、乙|（1）丙",
+          "A"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "题干五",
+            "options": [
+              "甲",
+              "乙",
+              "丙"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "A",
+            "source_row": 2,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "答案越界",
+      "file": "答案越界.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干六",
+          "甲|乙",
+          "E"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [],
+        "errors": [
+          {
+            "row": 2,
+            "msg": "答案字母超出选项范围（本题只有 2 个选项：AB）"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "选项不足两个",
+      "file": "选项不足两个.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干七",
+          "只有一个",
+          "A"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [],
+        "errors": [
+          {
+            "row": 2,
+            "msg": "选项少于 2 个（请用 | 或换行分隔，或填 选项A~H）"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "题型无法识别",
+      "file": "题型无法识别.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "填空",
+          "题干八",
+          "甲|乙",
+          "A"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [],
+        "errors": [
+          {
+            "row": 2,
+            "msg": "题型无法识别：填空（应为 单选/多选/判断）"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "题干为空",
+      "file": "题干为空.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          null,
+          "甲|乙",
+          "A"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [],
+        "errors": [
+          {
+            "row": 2,
+            "msg": "题干为空"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "name": "数字题干",
+      "file": "数字题干.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          2026,
+          "甲|乙",
+          "A"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "2026",
+            "options": [
+              "甲",
+              "乙"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "A",
+            "source_row": 2,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "表头不在第一行",
+      "file": "表头不在第一行.xlsx",
+      "rows": [
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "题库导入",
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干九",
+          "甲|乙",
+          "B"
+        ]
+      ],
+      "sheet": "题库",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "题干九",
+            "options": [
+              "甲",
+              "乙"
+            ],
+            "answer": [
+              1
+            ],
+            "answer_text": "B",
+            "source_row": 6,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "工作表名非题库",
+      "file": "工作表名非题库.xlsx",
+      "rows": [
+        [
+          "题型",
+          "题干",
+          "选项",
+          "正确答案"
+        ],
+        [
+          "单选",
+          "题干十",
+          "甲|乙",
+          "A"
+        ]
+      ],
+      "sheet": "Sheet1",
+      "ok": true,
+      "expect": {
+        "questions": [
+          {
+            "qtype": "single",
+            "stem": "题干十",
+            "options": [
+              "甲",
+              "乙"
+            ],
+            "answer": [
+              0
+            ],
+            "answer_text": "A",
+            "source_row": 2,
+            "raw_type": "单选"
+          }
+        ],
+        "errors": [],
+        "warnings": []
+      }
+    },
+    {
+      "name": "空表",
+      "rows": [
+        []
+      ],
+      "headerOffset": 0,
+      "sheet": "题库",
+      "ok": false,
+      "error": "AnswerError: 找不到表头行，请使用「下载模板」生成的表格填写（需包含「题干」「正确答案」列）",
+      "expectError": false
+    }
+  ]
+}

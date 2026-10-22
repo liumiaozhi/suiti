@@ -1,0 +1,22 @@
+.chip {
+  display: inline-flex; align-items: center; height: 60rpx; padding: 0 24rpx;
+  border-radius: 30rpx; font-size: 26rpx; margin: 0 12rpx 12rpx 0;
+  background: #eef2f9; color: var(--text-2);
+}
+.chip.on { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+.chip.off { opacity: .45; }
+
+.qtype-row {
+  display: flex; align-items: center; gap: 12rpx; margin-bottom: 16rpx; flex-wrap: wrap;
+}
+.qtype-name { width: 130rpx; font-size: 26rpx; color: var(--text-2); font-weight: 600; }
+
+.footbar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 16rpx;
+  padding: 18rpx 24rpx calc(18rpx + env(safe-area-inset-bottom));
+  background: var(--surface); border-top: 2rpx solid var(--line);
+  box-shadow: 0 -4rpx 20rpx rgba(22, 50, 90, .06);
+}
+.footbar .btn { min-height: 76rpx; }
+.footbar .btn.dis { opacity: .45; }

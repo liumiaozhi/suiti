@@ -1,0 +1,56 @@
+<view class="page">
+  <view class="card">
+    <view class="t-sub">从 Excel 导入题库</view>
+    <view class="t-sm muted" style="margin-top:8rpx;line-height:1.6">
+      先「下载模板」按格式填写，用微信发给自己，再点「选择文件」导入。
+    </view>
+    <view class="row" style="margin-top:20rpx">
+      <view class="btn ghost" bindtap="downloadTemplate">下载模板</view>
+      <view class="grow"></view>
+      <view class="btn pri" bindtap="chooseFile">选择文件</view>
+    </view>
+  </view>
+
+  <block wx:if="{{parsing}}">
+    <view class="card"><view class="muted">解析中…</view></view>
+  </block>
+
+  <block wx:elif="{{ready || errors.length}}">
+    <view class="card">
+      <view class="field">
+        <view class="lbl">题库名称</view>
+        <input class="inp" value="{{bankName}}" bindinput="onName" placeholder="请输入题库名称" maxlength="80" />
+      </view>
+      <view class="stats" style="margin-bottom:8rpx">
+        <view class="stat pri"><view class="v">{{total}}</view><view class="k">题目</view></view>
+        <view class="stat"><view class="v" style="color:var(--bad)">{{errors.length}}</view><view class="k">错误</view></view>
+        <view class="stat"><view class="v" style="color:var(--warn)">{{warnings.length}}</view><view class="k">警告</view></view>
+      </view>
+      <view class="t-xs muted nowrap">文件：{{fileName}}</view>
+    </view>
+
+    <view wx:if="{{errors.length}}" class="card">
+      <view class="card-h"><view class="h3">错误（必须修正）</view></view>
+      <view wx:for="{{errors}}" wx:key="row" class="row" style="padding:8rpx 0">
+        <text class="tag bad">第 {{item.row}} 行</text>
+        <text class="t-sm" style="margin-left:12rpx">{{item.msg}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{warnings.length}}" class="card">
+      <view class="card-h"><view class="h3">警告（可忽略）</view></view>
+      <view wx:for="{{warnings}}" wx:key="row" class="row" style="padding:8rpx 0">
+        <text class="tag warn">第 {{item.row}} 行</text>
+        <text class="t-sm" style="margin-left:12rpx">{{item.msg}}</text>
+      </view>
+    </view>
+
+    <view class="btn pri block lg" style="margin-top:24rpx" bindtap="createBank" disabled="{{errors.length || busy}}">创建题库</view>
+  </block>
+
+  <block wx:else>
+    <view class="card" style="text-align:center;padding:48rpx 30rpx">
+      <view class="t-sm muted">还没有选择文件。<br/>点上方「下载模板」获取表格格式，填好后「选择文件」即可导入。</view>
+    </view>
+  </block>
+</view>

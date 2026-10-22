@@ -1,0 +1,17 @@
+.hero {
+  padding: 18rpx 8rpx 26rpx;
+}
+.hero-t {
+  font-size: 46rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+  color: var(--text);
+}
+.hero-d {
+  margin-top: 6rpx;
+  font-size: 24rpx;
+  color: var(--muted);
+}
+.card-hover {
+  background: var(--surface-2);
+}

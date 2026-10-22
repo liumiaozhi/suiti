@@ -1,0 +1,23 @@
+.score-card { display: flex; align-items: center; }
+.ring {
+  width: 190rpx; height: 190rpx; border-radius: 50%;
+  border: 10rpx solid var(--primary-soft); display: flex; flex-direction: column;
+  align-items: center; justify-content: center; background: var(--surface);
+}
+.ring-v { font-size: 56rpx; font-weight: 700; color: var(--primary); line-height: 1.1; }
+.ring-k { font-size: 22rpx; color: var(--muted); margin-top: 4rpx; }
+.score-side { text-align: right; }
+
+.qno { font-size: 32rpx; font-weight: 700; color: var(--primary); }
+.wrong-item { padding: 24rpx 22rpx; }
+.wrong-item .stem { font-size: 28rpx; line-height: 1.7; }
+.opts-mini { display: flex; flex-direction: column; gap: 6rpx; font-size: 24rpx; color: var(--text-2); }
+
+.mk {
+  display: inline-flex; align-items: center; height: 48rpx; padding: 0 16rpx;
+  border-radius: 24rpx; font-size: 22rpx; background: #eef2f9; color: var(--muted);
+}
+.mk.on.hard { background: var(--primary-soft); color: var(--primary); font-weight: 600; }
+
+.nav { display: flex; align-items: center; gap: 16rpx; }
+.nav .grow { flex: 1 1 auto; }

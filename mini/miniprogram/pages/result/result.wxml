@@ -1,0 +1,74 @@
+<view class="page" wx:if="{{!loading}}">
+  <view wx:if="{{err}}" class="card"><view class="bad">{{err}}</view></view>
+
+  <block wx:else>
+    <view class="card score-card">
+      <view class="ring">
+        <view class="ring-v">{{scoreText}}</view>
+        <view class="ring-k">满分 {{scoreTotalText}}</view>
+      </view>
+      <view class="grow"></view>
+      <view class="score-side">
+        <view class="t-title">{{accText}}</view>
+        <view class="t-sm muted">正确率</view>
+      </view>
+    </view>
+
+    <view class="stats" style="margin-top:20rpx">
+      <view class="stat"><view class="k">总题数</view><view class="v">{{summary.total}}</view></view>
+      <view class="stat"><view class="k ok">正确</view><view class="v ok">{{summary.right}}</view></view>
+      <view class="stat"><view class="k bad">错误</view><view class="v bad">{{summary.wrong}}</view></view>
+    </view>
+    <view class="card" style="margin-top:20rpx">
+      <view class="row-between">
+        <view>
+          <view class="t-sub">漏答 {{summary.missing}} 题</view>
+          <view class="t-xs muted" style="margin-top:6rpx">
+            {{summary.mode_label}} · {{summary.bank_name}}<block wx:if="{{summary.candidate}}"> · 考生 {{summary.candidate}}</block>
+          </view>
+        </view>
+        <view class="btn pri sm" bindtap="exportPaper">导出试卷</view>
+      </view>
+    </view>
+
+    <view class="card-h" style="margin-top:28rpx">
+      <view class="h3 grow">错题（{{wrong.length}}）</view>
+      <text class="t-sm muted" bindtap="toggleWrong">{{showWrong ? '收起' : '展开'}}</text>
+    </view>
+
+    <block wx:if="{{showWrong}}">
+      <view wx:if="{{!wrong.length}}" class="empty">
+        <view class="b">全部答对</view>
+        <view class="d">这套题没有错题。</view>
+      </view>
+
+      <view wx:for="{{wrong}}" wx:key="pos" class="card wrong-item">
+        <view class="row-between">
+          <view class="qno">{{item.pos}}</view>
+          <view class="tag">{{item.qtype === 'single' ? '单选题' : item.qtype === 'multi' ? '多选题' : '判断题'}}</view>
+          <view wx:if="{{item.missing}}" class="tag bad">未作答</view>
+          <view class="grow"></view>
+          <view class="mk {{item.hardOn ? 'on hard' : ''}}"
+                data-pos="{{item.pos}}" data-qid="{{item.qid}}" bindtap="toggleHard">重难</view>
+        </view>
+        <view class="stem" style="margin:14rpx 0 12rpx">{{item.stem}}</view>
+        <view class="opts-mini">
+          <view wx:for="{{item.options}}" wx:for-item="o" wx:key="label">{{o.label}}. {{o.text}}</view>
+        </view>
+        <view class="t-sm" style="margin-top:12rpx">
+          <text class="muted">你的作答：</text>
+          <text class="{{item.missing ? 'muted' : 'bad'}}">{{item.chosen_text || '未作答'}}</text>
+          <text class="muted">　正确答案：</text>
+          <text class="ok">{{item.answer_text}}</text>
+        </view>
+      </view>
+    </block>
+
+    <view class="nav" style="margin-top:28rpx">
+      <view class="btn ghost" bindtap="goHome">回首页</view>
+      <view class="grow"></view>
+      <view class="btn pri" bindtap="again">再练一次</view>
+    </view>
+    <view style="height:60rpx"></view>
+  </block>
+</view>

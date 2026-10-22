@@ -1,0 +1,1498 @@
+{
+  "cases": [
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '正确'",
+      "args": [
+        "正确",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '错误'",
+      "args": [
+        "错误",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '对'",
+      "args": [
+        "对",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '错'",
+      "args": [
+        "错",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '√'",
+      "args": [
+        "√",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '×'",
+      "args": [
+        "×",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 'T'",
+      "args": [
+        "T",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 'F'",
+      "args": [
+        "F",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '是'",
+      "args": [
+        "是",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 '否'",
+      "args": [
+        "否",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 'A'",
+      "args": [
+        "A",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 'B'",
+      "args": [
+        "B",
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 1",
+      "args": [
+        1,
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.judge",
+      "name": "判断题答案 0",
+      "args": [
+        0,
+        "judge",
+        [
+          "正确",
+          "错误"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 'A'（四选项）",
+      "args": [
+        "A",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 'a'（四选项）",
+      "args": [
+        "a",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 'C'（四选项）",
+      "args": [
+        "C",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        2
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 'A,B,D'（四选项）",
+      "args": [
+        "A,B,D",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 'ABD'（四选项）",
+      "args": [
+        "ABD",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 'A、B'（四选项）",
+      "args": [
+        "A、B",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0,
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 'A|B'（四选项）",
+      "args": [
+        "A|B",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0,
+        1
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 '1'（四选项）",
+      "args": [
+        "1",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 '0,2'（四选项）",
+      "args": [
+        "0,2",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0,
+        2
+      ]
+    },
+    {
+      "group": "parse_answer.single_multi",
+      "name": "答案 '乙丙'（四选项）",
+      "args": [
+        "乙丙",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": false,
+      "error": "AnswerError: 答案无法识别：乙丙"
+    },
+    {
+      "group": "parse_answer.bad",
+      "name": "答案越界 E",
+      "args": [
+        "E",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": false,
+      "error": "AnswerError: 答案字母超出选项范围（本题只有 4 个选项：ABCD）"
+    },
+    {
+      "group": "parse_answer.bad",
+      "name": "答案为空",
+      "args": [
+        "",
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ]
+      ],
+      "ok": false,
+      "error": "AnswerError: 答案为空"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '下列说法正确的是（\\u3000）'",
+      "args": [
+        "下列说法正确的是（　）",
+        "single"
+      ],
+      "ok": true,
+      "expect": "下列说法正确的是（　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '下列说法正确的是（\\u3000\\u3000）'",
+      "args": [
+        "下列说法正确的是（　　）",
+        "single"
+      ],
+      "ok": true,
+      "expect": "下列说法正确的是（　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '下列说法正确的是( )'",
+      "args": [
+        "下列说法正确的是( )",
+        "single"
+      ],
+      "ok": true,
+      "expect": "下列说法正确的是（　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '下列说法正确的是。'",
+      "args": [
+        "下列说法正确的是。",
+        "single"
+      ],
+      "ok": true,
+      "expect": "下列说法正确的是。　（　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '下列属于流动资产的有（\\u3000）。'",
+      "args": [
+        "下列属于流动资产的有（　）。",
+        "multi"
+      ],
+      "ok": true,
+      "expect": "下列属于流动资产的有（　　　　　　）。"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '下列属于流动资产的有：'",
+      "args": [
+        "下列属于流动资产的有：",
+        "multi"
+      ],
+      "ok": true,
+      "expect": "下列属于流动资产的有：　（　　　　　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '同业存单属于负债业务（\\u3000）。'",
+      "args": [
+        "同业存单属于负债业务（　）。",
+        "judge"
+      ],
+      "ok": true,
+      "expect": "同业存单属于负债业务（　　）。"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '同业存单属于负债业务。'",
+      "args": [
+        "同业存单属于负债业务。",
+        "judge"
+      ],
+      "ok": true,
+      "expect": "同业存单属于负债业务。　（　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '（LCR）的监管最低标准是（\\u3000）'",
+      "args": [
+        "（LCR）的监管最低标准是（　）",
+        "single"
+      ],
+      "ok": true,
+      "expect": "（LCR）的监管最低标准是（　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '（2015 年修订）下列说法正确的是'",
+      "args": [
+        "（2015 年修订）下列说法正确的是",
+        "single"
+      ],
+      "ok": true,
+      "expect": "（2015 年修订）下列说法正确的是　（　　）"
+    },
+    {
+      "group": "parens",
+      "name": "括号 '（\\u3000）和（\\u3000）都对'",
+      "args": [
+        "（　）和（　）都对",
+        "multi"
+      ],
+      "ok": true,
+      "expect": "（　　　　　　）和（　　　　　　）都对"
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[0, 1] n=2",
+      "args": [
+        [
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[0, 1] n=2",
+      "args": [
+        [
+          "甲",
+          "乙"
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "甲",
+        "乙"
+      ]
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[1, 0] n=2",
+      "args": [
+        [
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        1
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[1, 0] n=2",
+      "args": [
+        [
+          "甲",
+          "乙"
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "乙",
+        "甲"
+      ]
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[0, 1, 2, 3] n=4",
+      "args": [
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[0, 1, 2, 3] n=4",
+      "args": [
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "甲",
+        "乙",
+        "丙",
+        "丁"
+      ]
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[3, 2, 1, 0] n=4",
+      "args": [
+        [
+          0
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        3
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[3, 2, 1, 0] n=4",
+      "args": [
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "丁",
+        "丙",
+        "乙",
+        "甲"
+      ]
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[0, 1, 2, 3, 4, 5] n=6",
+      "args": [
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[0, 1, 2, 3, 4, 5] n=6",
+      "args": [
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁",
+          "戊",
+          "己"
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "甲",
+        "乙",
+        "丙",
+        "丁",
+        "戊",
+        "己"
+      ]
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[5, 4, 3, 2, 1, 0] n=6",
+      "args": [
+        [
+          0
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        5
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[5, 4, 3, 2, 1, 0] n=6",
+      "args": [
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁",
+          "戊",
+          "己"
+        ],
+        [
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "己",
+        "戊",
+        "丁",
+        "丙",
+        "乙",
+        "甲"
+      ]
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[0, 1, 2, 3, 4, 5, 6, 7] n=8",
+      "args": [
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        0
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[0, 1, 2, 3, 4, 5, 6, 7] n=8",
+      "args": [
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁",
+          "戊",
+          "己",
+          "庚",
+          "辛"
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "甲",
+        "乙",
+        "丙",
+        "丁",
+        "戊",
+        "己",
+        "庚",
+        "辛"
+      ]
+    },
+    {
+      "group": "map_answer",
+      "name": "order=[7, 6, 5, 4, 3, 2, 1, 0] n=8",
+      "args": [
+        [
+          0
+        ],
+        [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        7
+      ]
+    },
+    {
+      "group": "display_options",
+      "name": "order=[7, 6, 5, 4, 3, 2, 1, 0] n=8",
+      "args": [
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁",
+          "戊",
+          "己",
+          "庚",
+          "辛"
+        ],
+        [
+          7,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": [
+        "辛",
+        "庚",
+        "己",
+        "戊",
+        "丁",
+        "丙",
+        "乙",
+        "甲"
+      ]
+    },
+    {
+      "group": "order",
+      "name": "种子 42 打乱 6 个",
+      "args": [],
+      "ok": true,
+      "expect": [
+        3,
+        1,
+        2,
+        4,
+        0,
+        5
+      ]
+    },
+    {
+      "group": "order",
+      "name": "不打乱 5 个",
+      "args": [],
+      "ok": true,
+      "expect": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "group": "is_correct",
+      "name": "[0] [0] vs single",
+      "args": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        "single"
+      ],
+      "ok": true,
+      "expect": true
+    },
+    {
+      "group": "is_correct",
+      "name": "[1] [0] vs single",
+      "args": [
+        [
+          1
+        ],
+        [
+          0
+        ],
+        "single"
+      ],
+      "ok": true,
+      "expect": false
+    },
+    {
+      "group": "is_correct",
+      "name": "[] [0] vs single",
+      "args": [
+        [],
+        [
+          0
+        ],
+        "single"
+      ],
+      "ok": true,
+      "expect": false
+    },
+    {
+      "group": "is_correct",
+      "name": "[0, 2] [0, 2] vs multi",
+      "args": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        "multi"
+      ],
+      "ok": true,
+      "expect": true
+    },
+    {
+      "group": "is_correct",
+      "name": "[0, 2] [2, 0] vs multi",
+      "args": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        "multi"
+      ],
+      "ok": true,
+      "expect": true
+    },
+    {
+      "group": "is_correct",
+      "name": "[0] [0, 2] vs multi",
+      "args": [
+        [
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        "multi"
+      ],
+      "ok": true,
+      "expect": false
+    },
+    {
+      "group": "is_correct",
+      "name": "[0, 1, 2] [0, 2] vs multi",
+      "args": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        "multi"
+      ],
+      "ok": true,
+      "expect": false
+    },
+    {
+      "group": "is_correct",
+      "name": "[1] [1] vs judge",
+      "args": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        "judge"
+      ],
+      "ok": true,
+      "expect": true
+    },
+    {
+      "group": "answer_text",
+      "name": "answer_text single",
+      "args": [
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ],
+        [
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": "A"
+    },
+    {
+      "group": "sel_text",
+      "name": "sel_text single",
+      "args": [
+        "single",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ],
+        [
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": "A"
+    },
+    {
+      "group": "answer_text",
+      "name": "answer_text multi",
+      "args": [
+        "multi",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "ok": true,
+      "expect": "A,C"
+    },
+    {
+      "group": "sel_text",
+      "name": "sel_text multi",
+      "args": [
+        "multi",
+        [
+          "甲",
+          "乙",
+          "丙",
+          "丁"
+        ],
+        [
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": "A"
+    },
+    {
+      "group": "answer_text",
+      "name": "answer_text judge",
+      "args": [
+        "judge",
+        [
+          "正确",
+          "错误"
+        ],
+        [
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": "正确"
+    },
+    {
+      "group": "sel_text",
+      "name": "sel_text judge",
+      "args": [
+        "judge",
+        [
+          "正确",
+          "错误"
+        ],
+        [
+          0
+        ]
+      ],
+      "ok": true,
+      "expect": "正确"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 0",
+      "args": [
+        0
+      ],
+      "ok": true,
+      "expect": "0"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 1",
+      "args": [
+        1
+      ],
+      "ok": true,
+      "expect": "1"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 2.5",
+      "args": [
+        2.5
+      ],
+      "ok": true,
+      "expect": "2.5"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 2.4",
+      "args": [
+        2.4
+      ],
+      "ok": true,
+      "expect": "2.4"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 10",
+      "args": [
+        10
+      ],
+      "ok": true,
+      "expect": "10"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 3.33",
+      "args": [
+        3.33
+      ],
+      "ok": true,
+      "expect": "3.33"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 0.5",
+      "args": [
+        0.5
+      ],
+      "ok": true,
+      "expect": "0.5"
+    },
+    {
+      "group": "fmt_score",
+      "name": "fmt_score 12.0",
+      "args": [
+        12.0
+      ],
+      "ok": true,
+      "expect": "12"
+    },
+    {
+      "group": "accuracy",
+      "name": "accuracy 7/10",
+      "args": [
+        7,
+        10
+      ],
+      "ok": true,
+      "expect": 70.0
+    },
+    {
+      "group": "accuracy",
+      "name": "accuracy 0/0",
+      "args": [
+        0,
+        0
+      ],
+      "ok": true,
+      "expect": 0.0
+    },
+    {
+      "group": "accuracy",
+      "name": "accuracy 1/3",
+      "args": [
+        1,
+        3
+      ],
+      "ok": true,
+      "expect": 33.3
+    },
+    {
+      "group": "accuracy",
+      "name": "accuracy 22/24",
+      "args": [
+        22,
+        24
+      ],
+      "ok": true,
+      "expect": 91.7
+    },
+    {
+      "group": "accuracy",
+      "name": "accuracy 0/5",
+      "args": [
+        0,
+        5
+      ],
+      "ok": true,
+      "expect": 0.0
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(2.5, 2)",
+      "args": [
+        2.5,
+        2
+      ],
+      "ok": true,
+      "expect": 2.5
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(3.5, 2)",
+      "args": [
+        3.5,
+        2
+      ],
+      "ok": true,
+      "expect": 3.5
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(0.125, 2)",
+      "args": [
+        0.125,
+        2
+      ],
+      "ok": true,
+      "expect": 0.12
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(1.005, 2)",
+      "args": [
+        1.005,
+        2
+      ],
+      "ok": true,
+      "expect": 1.0
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(2.675, 2)",
+      "args": [
+        2.675,
+        2
+      ],
+      "ok": true,
+      "expect": 2.67
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(0.5, 2)",
+      "args": [
+        0.5,
+        2
+      ],
+      "ok": true,
+      "expect": 0.5
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(-2.5, 2)",
+      "args": [
+        -2.5,
+        2
+      ],
+      "ok": true,
+      "expect": -2.5
+    },
+    {
+      "group": "pyround",
+      "name": "pyRound(12.345, 2)",
+      "args": [
+        12.345,
+        2
+      ],
+      "ok": true,
+      "expect": 12.35
+    },
+    {
+      "group": "pyround0",
+      "name": "pyRound(2.5)",
+      "args": [
+        2.5
+      ],
+      "ok": true,
+      "expect": 2
+    },
+    {
+      "group": "pyround0",
+      "name": "pyRound(3.5)",
+      "args": [
+        3.5
+      ],
+      "ok": true,
+      "expect": 4
+    },
+    {
+      "group": "pyround0",
+      "name": "pyRound(-0.5)",
+      "args": [
+        -0.5
+      ],
+      "ok": true,
+      "expect": 0
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '单选'",
+      "args": [
+        "单选"
+      ],
+      "ok": true,
+      "expect": "single"
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '单选题'",
+      "args": [
+        "单选题"
+      ],
+      "ok": true,
+      "expect": "single"
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '单项选择题'",
+      "args": [
+        "单项选择题"
+      ],
+      "ok": true,
+      "expect": "single"
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '多选'",
+      "args": [
+        "多选"
+      ],
+      "ok": true,
+      "expect": "multi"
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '多项选择题'",
+      "args": [
+        "多项选择题"
+      ],
+      "ok": true,
+      "expect": "multi"
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '判断'",
+      "args": [
+        "判断"
+      ],
+      "ok": true,
+      "expect": "judge"
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '判断题'",
+      "args": [
+        "判断题"
+      ],
+      "ok": true,
+      "expect": "judge"
+    },
+    {
+      "group": "parse_qtype",
+      "name": "题型 '填空'",
+      "args": [
+        "填空"
+      ],
+      "ok": false,
+      "error": "AnswerError: 题型无法识别：填空（应为 单选/多选/判断）"
+    }
+  ]
+}

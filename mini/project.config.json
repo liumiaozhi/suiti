@@ -1,0 +1,33 @@
+{
+  "appid": "wx8b39965e972c720d",
+  "compileType": "miniprogram",
+  "libVersion": "3.0.0",
+  "projectname": "随题",
+  "description": "随题 —— 离线做题小程序（P0 骨架，AppID 待补）",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "bigPackageSizeSupport": true,
+    "ignoreDevUnusedFiles": false,
+    "checkInvalidKey": true,
+    "coversEnable": false
+  },
+  "packOptions": {
+    "ignore": [
+      { "type": "folder", "value": "tests" },
+      { "type": "folder", "value": "tools" },
+      { "type": "folder", "value": "docs" },
+      { "type": "file", "value": "package.json" },
+      { "type": "file", "value": "package-lock.json" },
+      { "type": "file", "value": "README.md" }
+    ],
+    "include": []
+  },
+  "condition": {}
+}

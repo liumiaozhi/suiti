@@ -1,0 +1,430 @@
+{
+  "cases": [
+    {
+      "name": "预览（全量、升序、不打乱）",
+      "settings": {
+        "bank_id": 1,
+        "types": [
+          "single",
+          "multi",
+          "judge"
+        ],
+        "amount_mode": "all",
+        "amount": {},
+        "score": {
+          "single": 2,
+          "multi": 4,
+          "judge": 1
+        },
+        "q_order": "asc",
+        "a_order": "keep"
+      },
+      "questions": [
+        {
+          "qid": 1,
+          "qtype": "single",
+          "stem": "单选中第 1 题（　）",
+          "options": [
+            "甲0",
+            "乙0",
+            "丙0",
+            "丁0"
+          ],
+          "answer": [
+            0
+          ]
+        },
+        {
+          "qid": 2,
+          "qtype": "single",
+          "stem": "单选中第 2 题（　）",
+          "options": [
+            "甲1",
+            "乙1",
+            "丙1",
+            "丁1"
+          ],
+          "answer": [
+            1
+          ]
+        },
+        {
+          "qid": 3,
+          "qtype": "single",
+          "stem": "单选中第 3 题（　）",
+          "options": [
+            "甲2",
+            "乙2",
+            "丙2",
+            "丁2"
+          ],
+          "answer": [
+            2
+          ]
+        },
+        {
+          "qid": 4,
+          "qtype": "single",
+          "stem": "单选中第 4 题（　）",
+          "options": [
+            "甲3",
+            "乙3",
+            "丙3",
+            "丁3"
+          ],
+          "answer": [
+            3
+          ]
+        },
+        {
+          "qid": 5,
+          "qtype": "multi",
+          "stem": "多选第 1 题（　）",
+          "options": [
+            "甲",
+            "乙",
+            "丙",
+            "丁"
+          ],
+          "answer": [
+            0,
+            2
+          ]
+        },
+        {
+          "qid": 6,
+          "qtype": "multi",
+          "stem": "多选第 2 题（　）",
+          "options": [
+            "甲",
+            "乙",
+            "丙",
+            "丁"
+          ],
+          "answer": [
+            0,
+            2
+          ]
+        },
+        {
+          "qid": 7,
+          "qtype": "judge",
+          "stem": "判断第 1 题。",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": [
+            0
+          ]
+        },
+        {
+          "qid": 8,
+          "qtype": "judge",
+          "stem": "判断第 2 题。",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "answer": [
+            1
+          ]
+        }
+      ],
+      "expect": {
+        "bank_id": 1,
+        "bank_name": "黄金题库",
+        "source": "bank",
+        "total": 8,
+        "by_type": {
+          "single": {
+            "available": 4,
+            "picked": 4,
+            "score": 2.0
+          },
+          "multi": {
+            "available": 2,
+            "picked": 2,
+            "score": 4.0
+          },
+          "judge": {
+            "available": 2,
+            "picked": 2,
+            "score": 1.0
+          }
+        },
+        "scores": {
+          "single": 2.0,
+          "multi": 4.0,
+          "judge": 1.0
+        },
+        "score_per_q": 2.0,
+        "score_total": 18.0,
+        "warnings": [],
+        "settings": {
+          "bank_id": 1,
+          "types": [
+            "single",
+            "multi",
+            "judge"
+          ],
+          "amount_mode": "all",
+          "amount": {
+            "single": 0,
+            "multi": 0,
+            "judge": 0
+          },
+          "scores": {
+            "single": 2.0,
+            "multi": 4.0,
+            "judge": 1.0
+          },
+          "score_per_q": 2.0,
+          "q_order": "asc",
+          "a_order": "keep"
+        }
+      }
+    },
+    {
+      "name": "确定性卷面 items（升序 + 不打乱）",
+      "expectItems": [
+        {
+          "pos": 1,
+          "qtype": "single",
+          "stem": "单选中第 1 题（　）",
+          "options": [
+            "甲0",
+            "乙0",
+            "丙0",
+            "丁0"
+          ],
+          "order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "answer_disp": [
+            0
+          ],
+          "answer_text": "A",
+          "score": 2.0
+        },
+        {
+          "pos": 2,
+          "qtype": "single",
+          "stem": "单选中第 2 题（　）",
+          "options": [
+            "甲1",
+            "乙1",
+            "丙1",
+            "丁1"
+          ],
+          "order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "answer_disp": [
+            1
+          ],
+          "answer_text": "B",
+          "score": 2.0
+        },
+        {
+          "pos": 3,
+          "qtype": "single",
+          "stem": "单选中第 3 题（　）",
+          "options": [
+            "甲2",
+            "乙2",
+            "丙2",
+            "丁2"
+          ],
+          "order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "answer_disp": [
+            2
+          ],
+          "answer_text": "C",
+          "score": 2.0
+        },
+        {
+          "pos": 4,
+          "qtype": "single",
+          "stem": "单选中第 4 题（　）",
+          "options": [
+            "甲3",
+            "乙3",
+            "丙3",
+            "丁3"
+          ],
+          "order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "answer_disp": [
+            3
+          ],
+          "answer_text": "D",
+          "score": 2.0
+        },
+        {
+          "pos": 5,
+          "qtype": "multi",
+          "stem": "多选第 1 题（　）",
+          "options": [
+            "甲",
+            "乙",
+            "丙",
+            "丁"
+          ],
+          "order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "answer_disp": [
+            0,
+            2
+          ],
+          "answer_text": "A,C",
+          "score": 4.0
+        },
+        {
+          "pos": 6,
+          "qtype": "multi",
+          "stem": "多选第 2 题（　）",
+          "options": [
+            "甲",
+            "乙",
+            "丙",
+            "丁"
+          ],
+          "order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "answer_disp": [
+            0,
+            2
+          ],
+          "answer_text": "A,C",
+          "score": 4.0
+        },
+        {
+          "pos": 7,
+          "qtype": "judge",
+          "stem": "判断第 1 题。",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "order": [
+            0,
+            1
+          ],
+          "answer_disp": [
+            0
+          ],
+          "answer_text": "正确",
+          "score": 1.0
+        },
+        {
+          "pos": 8,
+          "qtype": "judge",
+          "stem": "判断第 2 题。",
+          "options": [
+            "正确",
+            "错误"
+          ],
+          "order": [
+            0,
+            1
+          ],
+          "answer_disp": [
+            1
+          ],
+          "answer_text": "错误",
+          "score": 1.0
+        }
+      ]
+    },
+    {
+      "name": "练习交卷（前4题对、第5题错、其余未答）",
+      "settings": {
+        "bank_id": 1,
+        "types": [
+          "single",
+          "multi",
+          "judge"
+        ],
+        "amount_mode": "all",
+        "amount": {},
+        "score": {
+          "single": 2,
+          "multi": 4,
+          "judge": 1
+        },
+        "q_order": "asc",
+        "a_order": "keep",
+        "mode": "practice"
+      },
+      "answers": {
+        "1-4": "全对",
+        "5": "故意错",
+        "6-8": "未答"
+      },
+      "expect": {
+        "total": 8,
+        "right": 4,
+        "wrong": 1,
+        "missing": 0,
+        "score": 8.0,
+        "score_total": 18.0,
+        "accuracy": 80.0
+      }
+    },
+    {
+      "name": "正式考试交卷（答 3 题全对，漏 5 题）",
+      "settings": {
+        "bank_id": 1,
+        "types": [
+          "single",
+          "multi",
+          "judge"
+        ],
+        "amount_mode": "all",
+        "amount": {},
+        "score": {
+          "single": 2,
+          "multi": 4,
+          "judge": 1
+        },
+        "q_order": "asc",
+        "a_order": "keep",
+        "mode": "exam",
+        "candidate": "张三 001"
+      },
+      "expect": {
+        "total": 8,
+        "right": 3,
+        "wrong": 0,
+        "missing": 5,
+        "score": 6.0,
+        "score_total": 18.0,
+        "accuracy": 37.5
+      }
+    }
+  ]
+}

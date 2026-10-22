@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "name": "正式考试卷（含考生信息）",
+      "sessionId": 2,
+      "expect": {
+        "title": "黄金题库",
+        "mode_title": "正式考试",
+        "total": 8,
+        "score_total": 18.0,
+        "scores": {
+          "single": 2.0,
+          "multi": 4.0,
+          "judge": 1.0
+        },
+        "groupCount": 3,
+        "groupTitles": [
+          "一、单项选择题",
+          "二、多项选择题",
+          "三、判断题"
+        ],
+        "groupScores": [
+          2.0,
+          4.0,
+          1.0
+        ],
+        "answerSheet": [
+          {
+            "pos": 1,
+            "answer_text": "A"
+          },
+          {
+            "pos": 2,
+            "answer_text": "B"
+          },
+          {
+            "pos": 3,
+            "answer_text": "C"
+          },
+          {
+            "pos": 4,
+            "answer_text": "D"
+          },
+          {
+            "pos": 5,
+            "answer_text": "A,C"
+          },
+          {
+            "pos": 6,
+            "answer_text": "A,C"
+          },
+          {
+            "pos": 7,
+            "answer_text": "正确"
+          },
+          {
+            "pos": 8,
+            "answer_text": "错误"
+          }
+        ],
+        "fragments": [
+          "考生信息：",
+          "得分：",
+          "一、单项选择题",
+          "二、多项选择题",
+          "三、判断题",
+          "参考答案",
+          "本试卷由「随题」生成"
+        ],
+        "hasDate": false
+      }
+    }
+  ]
+}

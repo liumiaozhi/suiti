@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/banks/banks",
+    "pages/hard/hard",
+    "pages/records/records",
+    "pages/setup/setup",
+    "pages/practice/practice",
+    "pages/exam/exam",
+    "pages/result/result"
+  ],
+  "subPackages": [
+    {
+      "root": "pkg-io-import",
+      "name": "import",
+      "pages": ["pages/import/import"]
+    },
+    {
+      "root": "pkg-io-export",
+      "name": "export",
+      "pages": ["pages/export/export"]
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1f5fd0",
+    "navigationBarTitleText": "随题",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f4f7fb",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#8a97a8",
+    "selectedColor": "#1f5fd0",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/home/home", "text": "首页" },
+      { "pagePath": "pages/banks/banks", "text": "题库" },
+      { "pagePath": "pages/hard/hard", "text": "重难错题" },
+      { "pagePath": "pages/records/records", "text": "记录" }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,9 @@
+# 构建依赖（仅打包机需要；最终 exe 自带这些库）
+pywebview==6.2.1
+pythonnet==3.2.1
+python-docx==1.2.0
+openpyxl==3.1.5
+pyinstaller==6.21.0
+pyinstaller-hooks-contrib==2026.9
+pillow
+pywin32==312

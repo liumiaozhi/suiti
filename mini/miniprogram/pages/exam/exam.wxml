@@ -1,0 +1,78 @@
+<view class="page" wx:if="{{!loading}}">
+  <view wx:if="{{err}}" class="card"><view class="bad">{{err}}</view></view>
+
+  <block wx:else>
+    <view class="qhead">
+      <view class="qno">{{pos}}</view>
+      <view class="t-sm muted">/ {{total}}</view>
+      <view class="grow"></view>
+      <view class="tag {{mode === 'exam' ? 'warn' : 'gray'}}">{{modeLabel}}</view>
+      <view class="mk {{marked ? 'on' : ''}}" bindtap="toggleMark">标记</view>
+      <view class="mk {{hardOn ? 'on hard' : ''}}" bindtap="toggleHard">重难</view>
+    </view>
+
+    <view class="card qcard">
+      <view class="stem">
+        <text class="typ">{{item.qtype === 'single' ? '单选' : item.qtype === 'multi' ? '多选' : '判断'}}</text>
+        {{item.stem}}
+      </view>
+
+      <view class="opts">
+        <view wx:for="{{opts}}" wx:for-item="o" wx:key="idx"
+              class="opt {{o.on ? 'sel' : ''}}"
+              data-idx="{{o.idx}}" bindtap="onOpt">
+          <text class="lbl">{{o.letter}}.</text>
+          <text class="txt">{{o.text}}</text>
+        </view>
+      </view>
+
+      <view wx:if="{{item.qtype === 'multi'}}" class="t-xs muted" style="margin-top:16rpx">
+        多选题：可多选，再次点击取消
+      </view>
+    </view>
+
+    <view class="nav">
+      <view class="btn ghost" bindtap="prev" wx:if="{{pos > 1}}">上一题</view>
+      <view class="btn ghost" bindtap="toggleSheet">答题卡 {{doneCnt}}/{{total}}</view>
+      <view class="grow"></view>
+      <view class="btn pri" bindtap="next">下一题</view>
+    </view>
+
+    <view class="foot-note">
+      <text class="t-xs muted">考生：{{candidate || '—'}}　·　</text>
+      <text class="t-xs muted link" bindtap="exit">退出</text>
+    </view>
+
+    <!-- 答题卡抽屉 -->
+    <view class="mask" wx:if="{{showSheet}}" bindtap="closeSheet">
+      <view class="sheet" catchtap="noop">
+        <view class="sheet-h">
+          <view class="t-sub">答题卡</view>
+          <view class="grow"></view>
+          <text class="muted" bindtap="closeSheet">关闭</text>
+        </view>
+        <scroll-view scroll-y class="sheet-b">
+          <block wx:for="{{sheet}}" wx:key="qtype">
+            <view class="sheet-g">{{item.label}}</view>
+            <view class="sheet-grid">
+              <view wx:for="{{item.items}}" wx:for-item="q" wx:key="pos"
+                    class="box {{q.done ? 'done' : ''}} {{q.marked ? 'marked' : ''}}"
+                    data-pos="{{q.pos}}" bindtap="jump">{{q.pos}}</view>
+            </view>
+          </block>
+        </scroll-view>
+        <view class="sheet-f">
+          <view class="t-xs muted">已答 {{doneCnt}} / {{total}}{{markedCnt ? '　标记 ' + markedCnt : ''}}</view>
+          <view class="btn pri" bindtap="submit">交卷</view>
+        </view>
+      </view>
+    </view>
+
+    <view style="height:140rpx"></view>
+    <view class="footbar">
+      <view class="grow"><view class="t-sm muted">已答 {{doneCnt}} / {{total}} 题</view></view>
+      <view class="btn ghost" bindtap="toggleSheet">答题卡</view>
+      <view class="btn pri" bindtap="submit">交卷</view>
+    </view>
+  </block>
+</view>

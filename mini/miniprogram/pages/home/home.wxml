@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-t">随题</view>
+    <view class="hero-d">离线做题 · 练习 / 模拟 / 正式考试</view>
+  </view>
+
+  <view class="stats" style="margin-bottom:20rpx">
+    <view class="stat">
+      <view class="k">题库</view>
+      <view class="v">{{bankCnt}}<small>个</small></view>
+    </view>
+    <view class="stat pri">
+      <view class="k">已做题</view>
+      <view class="v">{{doneCnt}}<small>道</small></view>
+    </view>
+    <view class="stat">
+      <view class="k">正确率</view>
+      <view class="v" style="font-size:32rpx">{{accText}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{err}}" class="card">
+    <view class="bad">读取失败：{{err}}</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="skeleton">加载中…</view>
+
+  <block wx:elif="{{!err}}">
+    <view class="card" wx:for="{{modes}}" wx:key="mode" bindtap="goMode" data-mode="{{item.mode}}" hover-class="card-hover">
+      <view class="row-between">
+        <view class="grow">
+          <view class="t-sub">{{item.name}}</view>
+          <view class="t-sm muted" style="margin-top:4rpx">{{item.desc}}</view>
+        </view>
+        <view class="tag {{item.tagClass}}">{{item.tag}}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{banks.length}}" class="card-h" style="margin-top:28rpx">
+      <view class="h3">最近题库</view>
+    </view>
+    <view class="card" wx:for="{{banks}}" wx:key="id" bindtap="goBank" data-id="{{item.id}}" hover-class="card-hover">
+      <view class="row-between">
+        <view class="grow">
+          <view class="t-sub ellipsis">{{item.name}}</view>
+          <view class="t-sm muted" style="margin-top:6rpx">
+            单选 {{item.counts.single}} · 多选 {{item.counts.multi}} · 判断 {{item.counts.judge}} · 共 {{item.counts.total}} 题
+          </view>
+        </view>
+        <text class="muted">›</text>
+      </view>
+    </view>
+
+    <view wx:if="{{!bankCnt}}" class="empty" style="margin-top:20rpx">
+      <view class="b">还没有题库</view>
+      <view class="d">到「题库」页导入 Excel，或用随题桌面版导出的 JSON 题库包。</view>
+      <view style="margin-top:24rpx"><button class="btn pri" bindtap="goBanks">去题库</button></view>
+    </view>
+  </block>
+
+  <view class="t-xs muted" style="text-align:center;margin-top:32rpx">v{{version}} · 数据保存在本机</view>
+</view>

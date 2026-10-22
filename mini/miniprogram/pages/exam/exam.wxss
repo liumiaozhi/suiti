@@ -1,0 +1,29 @@
+@import "../practice/practice.wxss";
+
+.sheet {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: var(--surface); border-radius: 24rpx 24rpx 0 0;
+  padding: 24rpx 24rpx calc(24rpx + env(safe-area-inset-bottom));
+  max-height: 76vh; display: flex; flex-direction: column;
+}
+.sheet-h { display: flex; align-items: center; margin-bottom: 16rpx; }
+.sheet-h .grow { flex: 1 1 auto; }
+.sheet-b { flex: 1 1 auto; max-height: 52vh; }
+.sheet-g { font-size: 24rpx; color: var(--muted); margin: 12rpx 0 10rpx; }
+.sheet-grid { display: flex; flex-wrap: wrap; gap: 14rpx; }
+.sheet-grid .box {
+  width: 88rpx; height: 88rpx; line-height: 88rpx; text-align: center;
+  border: 2rpx solid var(--line-2); border-radius: 12rpx; font-size: 26rpx; color: var(--text-2); background: var(--surface);
+}
+.sheet-grid .box.done { background: var(--primary-soft); border-color: var(--primary); color: var(--primary); font-weight: 600; }
+.sheet-grid .box.marked { border-color: var(--mark); box-shadow: inset 0 0 0 2rpx var(--mark); }
+
+.sheet-f { display: flex; align-items: center; gap: 16rpx; margin-top: 18rpx; }
+.sheet-f .grow { flex: 1 1 auto; }
+
+.footbar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 16rpx;
+  padding: 18rpx 24rpx calc(18rpx + env(safe-area-inset-bottom));
+  background: var(--surface); border-top: 2rpx solid var(--line);
+}

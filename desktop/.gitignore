@@ -1,0 +1,32 @@
+# ---------------- 构建环境 ----------------
+.venv-build/
+build/temp/
+*.pyc
+*.pyo
+__pycache__/
+
+# ---------------- 本地数据（绝不入库） ----------------
+.devdata/
+.devperf/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.log
+exports/
+
+# ---------------- 临时文件 ----------------
+*.tmp
+~$*
+*.bak
+paper_preview*.html
+
+# ---------------- 编辑器 / 系统 ----------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 说明：dist/随题.exe 是交付产物，按需保留在仓库中（体积约 19MB）。
+# 若只想存源码，删掉该文件并在 build/build.ps1 重新构建即可。
