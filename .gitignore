@@ -29,4 +29,6 @@ node_modules/
 
 # 构建产物（按需保留，这里默认不入库）
 desktop/build/
-desktop/dist/
+desktop/dist/*
+# 例外：交付用的可执行程序保留在仓库中
+!desktop/dist/随题.exe
